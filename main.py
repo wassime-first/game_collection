@@ -63,7 +63,6 @@ def login():
                 return redirect("/")
             else:
                 flash("Incorrect password!", category="danger")
-                title = "Login"
                 return render_template("login.html", form=form)
         else:
             return redirect(url_for("signup"))
@@ -92,6 +91,7 @@ def signup():
             dbb.session.commit()
             login_user(user, remember=True)
             flash("Account created and logged in!", category="secondary")
+            return redirect("/")
 
     return render_template("login.html", form=form, title="Sign Up")
 
