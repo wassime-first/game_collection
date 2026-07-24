@@ -1,0 +1,21 @@
+<div class="container px-0 d-flex justify-content-start align-content-center">
+
+    <nav aria-label="Page navigation " style="width:100px ">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link"
+                                     href="{{url_for(pagination_url, page = 1, search = search)}}"><<</a></li>
+            {% for p in current_pages %}
+            {% if p== page %}
+            <li class="page-item active"><a class="page-link"
+                                            href="{{url_for(pagination_url, page = page, search = search)}}">{{page}}</a>
+            </li>
+
+            {%else%}
+            <li class="page-item"><a class="page-link"
+                                     href="{{url_for(pagination_url, page = p, search = search)}}">{{p}}</a></li>
+
+            {%endif%}
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

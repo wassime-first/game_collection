@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %} {{search}}  {% endblock %}
+
+
+{% block content %}
+
+
+<br>
+<br>
+
+
+        <h1>{{search}}</h1>
+
+        <div class="py-5 my-5 bg-body-tertiary">
+            <div class="container ">
+                <div class="row  row-cols-sm-6 row-cols-md-4 g-3 d-flex justify-content-center">
+                    {% for g in games %}
+                    {% if g[-1] in user_games_id %}
+
+                    <div class="col  border border-danger border-top-0 rounded border-start-0  m-3"
+                         style="padding: 0">
+                        {% include 'card_img.html' %}
+                        <div class=" text-center"><p class="card-title "> {{g[0]}}</p><br>
+                            <p class="my-auto"> Rating: <span class="text-warning">'{{g[1] * 2}}/10'</span></p>
+                            <br>
+                            <div class=" d-flex  justify-content-center align-items-center">
+                                <div class="btn-group my-2 ">
+                                    <a data-bs-custom-class="details-tooltip" data-bs-placement="left"
+                                       data-bs-toggle="tooltip" title="details" href="{{url_for('details', id=g[-1])}}"
+                                       class="icon mx-2"><img src="../static/img/details.svg"></a>
+
+                                    <a data-bs-toggle="tooltip" title="delete" data-bs-placement="right"
+                                       data-bs-custom-class="delete-tooltip" href="{{url_for('delete', id=g[-1])}}"
+                                       class="icon mx-2"><img src="../static/img/delete.svg"></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%else%}
+                    <div class="col  border border-light border-top-0 rounded border-start-0  m-3"
+                         style="padding: 0">
+                        {% include 'card_img.html' %}
+
+
+                        <div class=" text-center"><p class="card-title "> {{g[0]}}</p><br>
+                            <p class="my-auto"> Rating: <span class="text-warning">'{{g[1] * 2}}/10'</span></p>
+                            <br>
+                            <div class="d-flex justify-content-center my-2 align-items-center">
+                                <div class="btn-group">
+                                    <a data-bs-custom-class="details-tooltip" data-bs-placement="left"
+                                       data-bs-toggle="tooltip" title="details" href="{{url_for('details', id=g[-1])}}"
+                                       class="icon mx-2"><img src="../static/img/details.svg"></a>
+
+                                    <a data-bs-toggle="tooltip" data-bs-placement="right"
+                                       data-bs-custom-class="add-tooltip" title="add"
+                                       href="{{url_for('add', id=g[-1])}}" class="icon mx-2"><img
+                                            src="../static/img/add.svg"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% include "pagination.html" %}
+
+
+{% endblock %}

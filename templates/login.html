@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+ {% block content %}
+
+
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+<h1> {{title}} </h1>
+<div class="container h-100  d-flex justify-content-center align-items-center">
+<div class="container w-75  py-5 text-center login">
+
+    {{ wtf.quick_form(form, novalidate=True, button_map= { "submit":"btn btn-outline-light mt-3" , "password":"pt-3" }) }}
+
+</div>
+</div>
+{% endblock %}
+
+
+
+

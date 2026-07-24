@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}  {{ game[0] }}  {% endblock %}
+
+{% block content %}
+
+<!--<div class="container bg-body-tetarian">-->
+        <h1> {{game[0]}} </h1><br>
+
+        <div class="py-5 my-5 text-start">
+            <div class="d-flex mb-0 align-content-center gap-2">
+                <h2> release date : </h2>
+                <h4 class="align-content-end text-secondary-emphasis"> {{game[4]}} </h4>
+            </div>
+
+            <div class="d-flex mb-0 align-content-center gap-2">
+                <h2> Metacritic : </h2>
+                <h4 class="align-content-end text-secondary-emphasis"> {{game[1]}} </h4>
+            </div>
+
+            <div class="d-flex mb-0 align-content-center gap-2">
+                <h2> rating : </h2>
+                <h4 class="align-content-end text-secondary-emphasis"> {{game[2]}}/5 </h4>
+            </div>
+
+            <div class="d-flex mb-0 align-content-center gap-2">
+                <h2> publisher : </h2>
+                <h4 class="align-content-end text-secondary-emphasis"> {{game[5]}} </h4>
+            </div>
+
+            <div class="d-flex mb-0 align-content-center gap-2">
+                <h2> Genre : </h2>
+                <h4 class="align-content-end text-secondary-emphasis"> {{game[-2]}} </h4>
+            </div>
+
+            <h2 class="d-inline-block"> Description:</h2>
+            <p class="description text-secondary-emphasis"> {{game[-3]}}</p>
+        </div>
+        <hr style="width: 60%; color: snow">
+        <div class="py-5 my-5 text-start">
+            <h2 class="d-inline-block"> Screenshots: </h2>
+            <br>
+            <br>
+            <div id="carouselExample"
+                 class="carousel slide carousel-fade border border-secondary-emphasis rounded-3 shadow details-carousel">
+                <div class="carousel-indicators">
+
+
+                    {% for s in range(screenshots|length) %}
+                    <button type="button" data-bs-target="#carouselExample" {%if loop.first %} class="active btn-light"
+                            aria-current="true" {% endif %} data-bs-slide-to="{{s}}"
+                            aria-label="Slide {{s+1}}"></button>
+                    {% endfor %}
+                </div>
+
+
+                <div class="carousel-inner ">
+                    {% for s in screenshots %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <img src="{{s}}" class="d-block w-100 img-fluid rounded" alt="screenshot">
+                    </div>
+
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
+        </div>
+<!--</div>-->
+{% endblock %}

@@ -1,0 +1,423 @@
+body {
+    padding-top: 100px;
+}
+
+.notification-icon {
+    transform-origin: 50% 10%;
+    animation: bell 2s ease-in-out;
+}
+
+
+.facebook_icon:hover {
+
+    color: #117a8b;
+}
+
+.facebook_icon {
+    color: white;
+}
+
+.facebook-tooltip {
+    --bs-tooltip-bg: #2d6cc8;
+    --bs-tooltip-color: #000000;
+    --bs-tooltip-font-size: 0.9rem;
+    --bs-tooltip-opacity: 1;
+    --bs-tooltip-border-radius: 10px;
+
+}
+
+.email_icon:hover {
+    color: yellow;
+}
+
+.email_icon {
+    color: #ffffff;
+}
+
+.email-tooltip , .details-tooltip{
+    --bs-tooltip-bg: #c9b535;
+    --bs-tooltip-color: #000000;
+    --bs-tooltip-font-size: 0.9rem;
+    --bs-tooltip-opacity: 1;
+    --bs-tooltip-border-radius: 10px;
+
+}
+
+
+.collection-tooltip, .home-tooltip, .add-tooltip {
+    --bs-tooltip-bg: #000000;
+    --bs-tooltip-color: #ffffff;
+    --bs-tooltip-font-size: 0.9rem;
+    --bs-tooltip-opacity: 1;
+    --bs-tooltip-border-radius: 10px;
+}
+
+.logout-tooltip, .delete-tooltip {
+    --bs-tooltip-bg: #000000;
+    --bs-tooltip-color: #ff0000;
+    --bs-tooltip-font-size: 0.9rem;
+    --bs-tooltip-opacity: 1;
+    --bs-tooltip-border-radius: 10px;
+}
+
+.icon {
+    transition: ease-in-out 0.5s;
+}
+
+.icon:hover {
+    /*animation-name: rotate;*/
+    /*animation-duration: 1s;*/
+    rotate: 30deg
+}
+
+.card-title, h1 {
+    position: relative;
+    /*font-size: 1.8rem;*/
+    font-family: "Bungee", cursive;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.card-title::after, h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 30%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(38, 224, 193, 1) 29%, rgba(68, 207, 121, 1) 90%, rgba(189, 235, 167, 1) 100%);;
+
+}
+
+
+.card {
+    /*height: 300px;*/
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+
+}
+
+
+.col {
+    background-color: #212529;
+    transition: 0.3s ease-in-out;
+}
+
+.col:hover {
+    filter: brightness(1.2);
+    /*scale: 1.1;*/
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: black;
+    box-shadow: 5px 0px 10px rgb(0 0 0 / 0.5)
+
+}
+
+
+.card:hover {
+    scale: 1.1;
+
+}
+
+
+.table > :not(caption) > * > * {
+    background-color: transparent;
+    color: inherit;
+}
+
+.card .table td,
+.card .table th {
+    color: white;
+    vertical-align: middle;
+    font-size: 1rem;
+}
+
+.card .table th {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+.navbar {
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(10px);
+
+}
+
+.carousel-indicators button {
+    background-color: white !important;
+
+}
+
+
+.carousel-control-prev button, .carousel-control-next button {
+
+    color: white !important;
+
+}
+
+
+.btn {
+    transition: 0.3s ease-in-out;
+
+}
+
+.btn:hover{
+    scale: 1.1;
+}
+
+
+.col {
+    animation: bloor 2s ease, scaledown 2s ease-in-out;
+}
+
+body
+ {
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.details {
+    animation: fadeIn 1s ease, bloor 2s ease-in-out;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        rotate: 360deg;
+    }
+
+
+}
+
+@keyframes scale {
+    from {
+        scale: 1;
+    }
+
+    to {
+        scale: 1.1;
+    }
+
+}
+
+@keyframes scaledown {
+
+    from {
+        scale: 1.1;
+    }
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes bloor {
+    0% {
+        filter: blur(5px);
+
+    }
+    50% {
+        filter: blur(2px);
+    }
+    100% {
+        filter: blur(0);
+    }
+
+}
+
+@keyframes fadeIn {
+    0% {
+        filter: opacity(0);
+
+    }
+    50% {
+        filter: opacity(50%);
+    }
+    100% {
+        filter: opacity(100%);
+    }
+
+}
+
+@keyframes bell {
+    0%   { transform: rotate(20deg); }
+    15%  { transform: rotate(20deg); }
+    30%  { transform: rotate(-20deg); }
+    45%  { transform: rotate(15deg); }
+    60%  { transform: rotate(-15deg); }
+    75%  { transform: rotate(8deg); }
+    90%  { transform: rotate(-8deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+
+h1{
+    color: #fff;
+    position: relative;
+    /*font-size: 1.8rem;*/
+    font-family: "bungee", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 35%;
+    width: 30%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(38, 224, 193, 1) 29%, rgba(68, 207, 121, 1) 90%, rgba(189, 235, 167, 1) 100%);;
+
+}
+
+
+h2{
+    color: #fff;
+    position: relative;
+    font-family:  "Montserrat" ,sans-serif;
+    /*font-size: 1.8rem;*/
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -5%;
+    left: 35%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(38, 224, 193, 1) 29%, rgba(68, 207, 121, 1) 90%, rgba(189, 235, 167, 1) 100%);;
+
+}
+
+h4 {
+    letter-spacing: 2px;
+    font-family:  "Montserrat" ,sans-serif;
+
+}
+
+.details-carousel {
+    margin-left: 20px;
+}
+
+
+
+.description {
+
+    margin-left: 20px ;
+    font-family: "Inter",sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    line-height: 1.7;
+    letter-spacing: 2px;
+    text-spacing: space-all;
+}
+
+
+@media (max-width: 800px) {
+   .details-carousel {
+       margin-left: 20px;
+       width: 90%;
+
+   }
+    .col {
+        background-color: #212529;
+        transition: 0.3s ease-in-out;
+    }
+
+    .col:active {
+        filter: brightness(2);
+        /*scale: 1.1;*/
+        scale: 0.9;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: black;
+        box-shadow: 5px 0px 10px rgb(0 0 0 / 0.5)
+
+    }
+
+    .col:hover {
+        filter: none;
+        transform: none;
+        background-color: inherit;
+        color: inherit;
+        box-shadow: none;
+
+    }
+
+    /*.card:hover {*/
+    /*    scale: none;*/
+    /*}*/
+
+
+
+    .icon:hover {
+
+        rotate: none;
+    }
+
+    .icon:active {
+        filter: brightness(2);
+        scale: 2;
+
+    }
+
+    h2{
+        /*color: #fff;*/
+        /*position: relative;*/
+        /*font-family:  cursive;*/
+        font-size: 0.9rem;
+        margin-left: 10px;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+
+    .pagination {
+        width: 60%;
+    }
+
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#6c5ce7, #00cec9);
+    border-radius: 10px;
+    border: 3px solid #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a29bfe;
+}
+
+
+

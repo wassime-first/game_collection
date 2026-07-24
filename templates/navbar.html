@@ -1,0 +1,55 @@
+
+{% if current_user.is_authenticated %}
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" data-bs-custom-class="home-tooltip" data-bs-placement="bottom" data-bs-toggle="tooltip" title="home" href="{{ url_for('home') }}"> <img class="icon" style="width: 3rem"
+                                                                                                                                                                                   src="../static/img/games.svg"> </a>
+        <button class="navbar-toggler d-lg-none text-bg-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block align-content-center h-100 active text-light"
+                       data-bs-toggle="tooltip" title="collection" data-bs-placement="bottom"
+                       data-bs-custom-class="collection-tooltip" aria-current="page"
+                       href="{{url_for('collection')}}"><img class="icon" src="../static/img/collections2.svg"></a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tooltip" title="logout" data-bs-placement="bottom"
+                       data-bs-custom-class="logout-tooltip" aria-current="page" href="{{url_for('logout')}}"><img
+                            class="icon"
+                            src="../static/img/logout.svg">
+                    </a>
+                </li>
+            </ul>
+            <form action="{{action_url}}" method="post">
+                <div class="input-group ">
+                    <input type="text" class="form-control" aria-label="Search game" name="search"
+                           {% if request.endpoint== 'collection' %}
+                    placeholder="Search collection "
+                    {% else %}
+                    placeholder="Search game"
+                    {% endif %}
+                    aria-describedby="basic-addon2">
+                    <button type="submit" class="btn  btn-outline-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="20px" width="20px"
+                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+{% endif %}
+

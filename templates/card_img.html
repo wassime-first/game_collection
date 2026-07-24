@@ -1,0 +1,85 @@
+<!-- the image carousel  upper part of the card ; bellow it add the title rating and buttons  -->
+
+
+
+{% if  games[0].name %}
+
+<div class="card shadow-sm ">
+    <div id="carousel{{g.id}}" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+            {% if g.background %}
+            <div class="carousel-item active">
+                <img src="{{g.background}}" class="img-fluid img rounded d-block w-100" alt="game image">
+            </div>
+
+            {% else %}
+            <div class="carousel-item active">
+                <img src="../static/img/controler.png" class="img-fluid img rounded d-block w-100" alt="game image">
+            </div>
+            {% endif %}
+
+            {% for i in g.screenshots[1::] %}
+            <div class="carousel-item ">
+                <img src="{{i}}" class="img-fluid rounded d-block w-100" alt="game image">
+            </div>
+            {%endfor%}
+        </div>
+
+        {% if g.screenshots|length > 1 %}
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{g[-1]}}"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel{{g.id}}"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% else %}
+
+    <div class="card shadow-sm ">
+        <div id="carousel{{g[-1]}}" class="carousel slide carousel-fade">
+            <div class="carousel-inner card-image">
+
+                {% if g[2] %}
+                <div class="carousel-item active">
+                    <img src="{{g[2]}}" class="img-fluid img rounded d-block w-100" alt="game image">
+                </div>
+                {% else %}
+                <div class="carousel-item active">
+                    <img src="../static/img/controler.png" class="img-fluid img rounded d-block w-100" alt="game image">
+                </div>
+                {% endif %}
+
+                {% for i in g[3][1::] %}
+                <div class="carousel-item ">
+                    <img src="{{i}}" class="img-fluid rounded d-block w-100" alt="game image">
+                </div>
+                {%endfor%}
+            </div>
+
+            {% if g[3]|length > 1 %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{g[-1]}}"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel{{g[-1]}}"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endif %}
+<!-- u should close the div in the end of  the card-->
