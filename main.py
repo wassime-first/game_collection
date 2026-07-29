@@ -9,7 +9,7 @@ from flask_login import login_user, login_required, current_user, logout_user, L
 import dbb
 import os
 import api
-from rapidfuzz.process import extractOne
+from rapidfuzz.process import extractOne, extract
 
 # creating flask app
 
@@ -130,12 +130,23 @@ def home():
 def collection():
     if request.method == "POST":
 
-        search = request.form.get("search")
-        all_games_names = [game.name for game in current_user.games]
+        search = (request.form.get("search")).lower()
+        all_games_names = [(game.name).lower() for game in current_user.games]
 
         result = extractOne(search, all_games_names, score_cutoff=50)
-        if result:
-            games = [game for game in current_user.games if game.name in result]
+        results = [name[0] for name in  extract(search, all_games_names, score_cutoff=50, limit=5)]
+
+        if results:
+            games = [game for game in current_user.games if (game.name).lower() in results]
+            action_url = url_for('collection')
+            return render_template("collection.html",
+                                   games=games,
+                                   action_url=action_url)
+
+
+
+        elif result:
+            games = [game for game in current_user.games if (game.name).lower() in result]
             action_url = (url_for('collection'))
             return render_template("collection.html",
                                    games=games,
